@@ -1,0 +1,88 @@
+get -> '/devicetimbangan/getAllLine'
+
+output: 
+
+[
+    {value: '1', text: 'Line 1'},
+    {value: '2', text: 'Line 2'},
+    {value: '3', text: 'Line 3'}
+]
+
+
+get -> '/devicetimbangan/getAllMachine'
+
+output: 
+
+{
+    "1": [
+        {value: 'mixer-1', text: 'Mixer 1'},
+        {value: 'oven-2', text: 'Oven 2'},
+        {value: 'packaging-3', text: 'Packaging 3'}
+    ],
+    2: [
+        {value: 'mixer-4', text: 'Mixer 4'},
+        {value: 'oven-5', text: 'Oven 5'},
+        {value: 'packaging-6', text: 'Packaging 6'}
+    ],
+    3: [
+        {value: 'mixer-7', text: 'Mixer 7'},
+        {value: 'oven-8', text: 'Oven 8'},
+        {value: 'packaging-9', text: 'Packaging 9'}
+    ],
+};
+
+get -> '/devicetimbangan/getBadStockCategoryList'
+
+output:
+
+{
+    'mixer': [
+        {value: 'category1', text: 'Category 1'},
+        {value: 'category2', text: 'Category 2'},
+        {value: 'category3', text: 'Category 3'}
+    ],
+    'oven': [
+        {value: 'category4', text: 'Category 4'},
+        {value: 'category5', text: 'Category 5'},
+        {value: 'category6', text: 'Category 6'}
+    ],
+    'packaging': [
+        {value: 'category7', text: 'Category 7'},
+        {value: 'category8', text: 'Category 8'},
+        {value: 'category9', text: 'Category 9'}
+    ]
+}
+
+get -> '/devicetimbangan/getHistoryTimbang'
+
+output: 
+
+[
+    {
+        line: 1,
+        machine: 'mixer-1',
+        category: 'category1',
+        weight: 12000
+    }, {
+        line: 1,
+        machine: 'packaging-1',
+        category: 'category2',
+        weight: 15000
+    }, {
+        line: 1,
+        machine: 'oven-1',
+        category: 'category3',
+        weight: 1324000
+    },
+] 
+
+
+post -> '/devicetimbangan/submitdata'
+
+payload:
+{
+    line: this.selectedLine,
+    machine: this.selectedMachine,
+    category: this.selectedCategory,
+    weight: this.berattimbangan
+}
